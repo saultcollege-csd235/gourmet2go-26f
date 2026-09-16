@@ -118,12 +118,17 @@ This will install all required packages listed in `package.json`, including:
 
 ### 3. Install Backend Dependencies
 
+Note from Caellum: requirements.txt is located in the api folder of the project. You will likely need to add this to the command.
 ```bash
 # Install Python dependencies
 pip install -r requirements.txt
 
 # On some systems, you may need to use pip3
 pip3 install -r requirements.txt
+
+# For Caellum's note - if you get "requirements.txt does not exist" error.
+pip install -r api\requirements.txt
+# You also need to ensure you are in the correct root folder. This command worked when I was operating within G2G-Program\gourmet2go-26f. In other words, you may need to go down another folder layer.
 ```
 
 This installs the Flask serverless API dependencies required for administrative operations.
@@ -157,7 +162,20 @@ wasm-pack build --target web
 
 ### 5. Environment Configuration
 
-The project uses a `.env` file in the **project root** directory for environment variables. **You need to configure this file with your own Supabase credentials** before running the app.
+The project uses a `.env` file in the **project root** directory for environment variables. **You need to make this file, then populate with your own Supabase credentials** before running the app.
+
+#### Getting Supabase Credentials:
+
+1. Go to your Supabase project dashboard: https://supabase.com/dashboard/project/vnnlrooakzcseeiqskxw
+2. Navigate to **Settings** → **API** (on the left side of the site)
+3. Copy the following:
+   - **Project URL** → `VITE_SUPABASE_URL`
+   - **anon/public key** → `VITE_SUPABASE_ANON_KEY`
+   - **service_role key** → `SUPABASE_SERVICE_ROLE_KEY` (keep this secret!)
+
+**Security Note:** Never commit the `.env` file to Git. It's already included in `.gitignore`.
+
+---
 
 **Update the `.env` file with the following:**
 ```env
@@ -176,19 +194,6 @@ VITE_APP_URL=http://localhost:5173  # For local development
 # Production URL (already deployed):
 # VITE_APP_URL=https://gourmet2go.vercel.app
 ```
-
-#### Getting Supabase Credentials:
-
-1. Go to your Supabase project dashboard: https://supabase.com/dashboard/project/vnnlrooakzcseeiqskxw
-2. Navigate to **Settings** → **API**
-3. Copy the following:
-   - **Project URL** → `VITE_SUPABASE_URL`
-   - **anon/public key** → `VITE_SUPABASE_ANON_KEY`
-   - **service_role key** → `SUPABASE_SERVICE_ROLE_KEY` (keep this secret!)
-
-**Security Note:** Never commit the `.env` file to Git. It's already included in `.gitignore`.
-
----
 
 ## Running the Application
 
