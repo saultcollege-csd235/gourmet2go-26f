@@ -143,9 +143,9 @@ pip install -r requirements.txt --user
 The application uses a Rust-based image processor compiled to WebAssembly for client-side image optimization.
 
 ```bash
-# Navigate to the Rust directory
-
-# Build the WASM package
+# Navigate to the Rust directory...
+cd wasm-lib
+# ...then build the WASM package
 wasm-pack build --target web
 ```
 
@@ -173,7 +173,7 @@ The project uses a `.env` file in the **project root** directory for environment
    - **anon/public key** → `VITE_SUPABASE_ANON_KEY`
    - **service_role key** → `SUPABASE_SERVICE_ROLE_KEY` (keep this secret!)
 
-**Security Note:** Never commit the `.env` file to Git. It's already included in `.gitignore`.
+**Security Note:** Never commit the `.env` file to Git. It's already included in `.gitignore`. This is why you need to MAKE YOUR OWN .env :)
 
 ---
 
