@@ -109,6 +109,7 @@ This will install all required packages listed in `package.json`, including:
 - Vite (build tool)
 - Tailwind CSS
 - Supabase client
+- Stripe (payment method)
 - TanStack Query (React Query)
 - Zustand (state management)
 - Recharts (analytics charts)
@@ -118,7 +119,7 @@ This will install all required packages listed in `package.json`, including:
 
 ### 3. Install Backend Dependencies
 
-Note from Caellum: requirements.txt is located in the api folder of the project. You will likely need to add this to the command.
+**Note:** Requirements.txt is located in the api folder of the project. You will likely need to add this to the command.
 ```bash
 # Install Python dependencies
 pip install -r requirements.txt
@@ -126,7 +127,7 @@ pip install -r requirements.txt
 # On some systems, you may need to use pip3
 pip3 install -r requirements.txt
 
-# For Caellum's note - if you get "requirements.txt does not exist" error.
+# If you get "requirements.txt does not exist" error.
 pip install -r api\requirements.txt
 # You also need to ensure you are in the correct root folder. This command worked when I was operating within G2G-Program\gourmet2go-26f. In other words, you may need to go down another folder layer.
 ```
