@@ -301,3 +301,9 @@ if __name__ == '__main__':
     # Debug mode is set to false for production safety
     # Locally you can set it to true to get detailed error messages in the console
     app.run(port=5000, debug=False)
+
+
+# Stripe testing
+@app.route("/api/test-stripe")
+def test_stripe():
+    return {"loaded": bool(os.getenv("STRIPE_SECRET_KEY"))}
