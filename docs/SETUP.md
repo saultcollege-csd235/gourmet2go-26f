@@ -233,7 +233,7 @@ The Flask API is deployed as serverless functions on Vercel, but for local testi
 cd api
 
 # Run Flask in development mode
-python app.py
+python test_app.py
 
 # Or use Flask CLI
 flask run
