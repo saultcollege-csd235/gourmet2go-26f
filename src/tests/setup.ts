@@ -18,9 +18,40 @@ i18next.use(initReactI18next).init({
 
 expect.extend(matchers);
 
-// This is like @AfterEach in JUnit, it runs after each test and performs cleanup
+// Cleanup after each test
 afterEach(() => {
   cleanup();
+  localStorage.clear();
+  vi.clearAllMocks();
+});
+
+// Mock localStorage for tests
+const localStorageMock = (() => {
+  let store: Record<string, string> = {};
+  return {
+    getItem: vi.fn((key: string) => store[key] || null),
+    setItem: vi.fn((key: string, value: string) => {
+      store[key] = String(value);
+    }),
+    removeItem: vi.fn((key: string) => {
+      delete store[key];
+    }),
+    clear: vi.fn(() => {
+      store = {};
+    }),
+    get length() {
+      return Object.keys(store).length;
+    },
+    key: vi.fn((index: number) => {
+      const keys = Object.keys(store);
+      return keys[index] || null;
+    }),
+  };
+})();
+
+Object.defineProperty(window, 'localStorage', {
+  value: localStorageMock,
+  writable: true,
 });
 
 Object.defineProperty(window, 'matchMedia', {
