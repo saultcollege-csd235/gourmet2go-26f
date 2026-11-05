@@ -11,16 +11,18 @@ export const Checkout = () => {
   const { items, totalPrice, clearCart } = cartStore();
   const { user } = useAuth();
   const navigate = useNavigate();
-  
+
   const [loading, setLoading] = useState(false);
   const [notes, setNotes] = useState("");
 
   const total = totalPrice();
-    
+
+  const stripePublicKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY;
+
   const handleConfirmOrder = async () => {
     // If user isn't logged in or items is 0, return
     if (!user || items.length === 0) return;
-    
+
     setLoading(true); // Shows loading state on button
     const toastId = toast.loading("Processing your order..."); // Triggers sonner toast
 
@@ -28,17 +30,20 @@ export const Checkout = () => {
       const menuId = items[0].menu_id; // Gets the menu_id from the first item
 
       // Ensures the user hasn't already made an order for this menu
-      const { data: existingOrders, error: existingOrdersError } = await supabase
-        .from("Orders")
-        .select("order_id")
-        .eq("user_id", user.id)
-        .eq("menu_id", menuId)
-        .limit(1);
+      const { data: existingOrders, error: existingOrdersError } =
+        await supabase
+          .from("Orders")
+          .select("order_id")
+          .eq("user_id", user.id)
+          .eq("menu_id", menuId)
+          .limit(1);
 
       if (existingOrdersError) throw existingOrdersError;
 
       if (existingOrders && existingOrders.length > 0) {
-        throw new Error("You've already placed an order for this menu. We have a strict one order per menu policy. You can delete your current order and re-order if you'd like.");
+        throw new Error(
+          "You've already placed an order for this menu. We have a strict one order per menu policy. You can delete your current order and re-order if you'd like.",
+        );
       }
 
       const orderItemsPayload = items.map((item) => ({
@@ -46,7 +51,22 @@ export const Checkout = () => {
         quantity: item.quantity,
       }));
 
-      const { error: rpcError } = await supabase.rpc('place_order', {
+      // let's handle payment before
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+          items: items,
+        }),
+      });
+
+      const data = await response.json();
+
+      window.location.href = data.url;
+
+      const { error: rpcError } = await supabase.rpc("place_order", {
         p_menu_id: menuId,
         p_items: orderItemsPayload,
         p_notes: notes.trim() || null,
@@ -60,16 +80,19 @@ export const Checkout = () => {
       toast.success("Order confirmed!", { id: toastId });
       clearCart(); // Cart cleared
       navigate("/successful-order"); // User sent to SuccessfulOrderPage
-      
     } catch (err: any) {
       console.error(err);
 
       // Check for Postgres Unique Violation (code 23505)
       // This handles the rare case where the random order_number collides
-      if (err.code === '23505') {
-        toast.error("Small issue processing your order, please try again.", { id: toastId });
+      if (err.code === "23505") {
+        toast.error("Small issue processing your order, please try again.", {
+          id: toastId,
+        });
       } else {
-        toast.error(err.message || "Failed to place order. Please try again.", { id: toastId });
+        toast.error(err.message || "Failed to place order. Please try again.", {
+          id: toastId,
+        });
       }
     } finally {
       setLoading(false);
@@ -82,29 +105,35 @@ export const Checkout = () => {
     <div className="min-h-screen bg-white dark:bg-zinc-900 py-12 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-4 mb-8">
-          <button 
+          <button
             onClick={() => navigate(-1)}
             aria-label="Go back"
             className="group flex items-center justify-center w-10 h-10 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-full hover:border-[#00659B] hover:text-[#00659B] transition-all shadow-sm"
           >
-            <ArrowLeft 
-              className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-[#00659B]" 
+            <ArrowLeft
+              className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-[#00659B]"
               aria-hidden="true"
             />
           </button>
           <div>
-            <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Checkout</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Review your order and confirm details</p>
+            <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+              Checkout
+            </h1>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Review your order and confirm details
+            </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-zinc-800">
               <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                 <FileText className="w-5 h-5 text-[#00659B]" />
-                Order Notes <span className="text-zinc-900 dark:text-white font-normal text-sm ml-auto">(Optional)</span>
+                Order Notes{" "}
+                <span className="text-zinc-900 dark:text-white font-normal text-sm ml-auto">
+                  (Optional)
+                </span>
               </h2>
               <div className="relative">
                 <textarea
@@ -129,13 +158,18 @@ export const Checkout = () => {
 
               <div className="space-y-4 mb-6 max-h-80 overflow-y-auto pr-2 custom-scrollbar">
                 {items.map((item) => (
-                  <div key={item.dish_id} className="flex justify-between items-start py-2 border-b border-gray-50 dark:border-zinc-800 last:border-0">
+                  <div
+                    key={item.dish_id}
+                    className="flex justify-between items-start py-2 border-b border-gray-50 dark:border-zinc-800 last:border-0"
+                  >
                     <div className="flex gap-3">
                       <span className="flex items-center justify-center w-6 h-6 bg-gray-100 dark:bg-zinc-800 text-xs font-bold rounded text-gray-600 dark:text-gray-300">
                         {item.quantity}x
                       </span>
                       <div>
-                        <p className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">{item.name}</p>
+                        <p className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">
+                          {item.name}
+                        </p>
                         <p className="text-xs text-gray-500">{item.category}</p>
                       </div>
                     </div>
@@ -148,8 +182,12 @@ export const Checkout = () => {
 
               <div className="bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-4 space-y-3 mb-6">
                 <div className="flex justify-between items-center">
-                  <span className="text-base font-bold text-gray-900 dark:text-white">Total</span>
-                  <span className="text-xl font-extrabold text-[#00659B]">${total.toFixed(2)}</span>
+                  <span className="text-base font-bold text-gray-900 dark:text-white">
+                    Total
+                  </span>
+                  <span className="text-xl font-extrabold text-[#00659B]">
+                    ${total.toFixed(2)}
+                  </span>
                 </div>
               </div>
 
@@ -158,11 +196,14 @@ export const Checkout = () => {
                 disabled={loading}
                 className="w-full bg-linear-to-r from-[#00659B] to-[#005082] hover:from-[#005082] hover:to-[#004060] text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-blue-900/20 hover:shadow-xl hover:shadow-blue-900/30 transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center gap-2"
               >
-                {loading ? <Loader fullScreen={false} text="Processing..." /> : "Confirm Order"}
+                {loading ? (
+                  <Loader fullScreen={false} text="Processing..." />
+                ) : (
+                  "Confirm Order"
+                )}
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>

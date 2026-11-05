@@ -57,7 +57,30 @@ def test_stripe(): #changed to be testing stripe to flask connection
         }, 500
 
 #CREATE CHECKOUT SESSION HERE
+@app.route("/api/create-checkout-session", methods=["POST"])
+def create_checkout_session():
 
+    session = stripe.checkout.Session.create(
+        mode="payment",
+        line_items=[
+            {
+                "price_data": {
+                    "currency": "cad",
+                    "product_data": {
+                        "name": "Test Item"
+                    },
+                    "unit_amount": 1000
+                },
+                "quantity": 1
+            }
+        ],
+        success_url="http://localhost:5173/success",
+        cancel_url="http://localhost:5173/checkout"
+    )
+
+    return jsonify({
+        "url": session.url
+    })
 
 
 @app.route('/api/hello', methods=['GET'])
