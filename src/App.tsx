@@ -12,6 +12,7 @@ import { AnalyticsPage } from "./pages/admin/AnalyticsPage";
 import { AddDishPage } from "./pages/admin/menu/AddDishPage.tsx";
 import { AddMenuPage } from "./pages/admin/menu/AddMenuPage.tsx";
 import { MenuPage } from "./pages/MenuPage";
+import { PaymentCancelled } from "./components/checkout/PaymentCancelled";
 import { UnauthorizedPage } from "./pages/error/UnauthorizedPage.tsx";
 import { EditMenuPage } from "./pages/admin/menu/EditMenuPage.tsx";
 import { Footer } from "./components/Footer";
@@ -63,6 +64,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/reset-password" element={<ResetPasswordPage />} />
+            <Route path="/payment-cancelled" element={<PaymentCancelled />} />
             
             {/* Auth only routes */}
             <Route element={<ProtectedRoute allowedRoles={["USER", "ADMIN"]} />}>
