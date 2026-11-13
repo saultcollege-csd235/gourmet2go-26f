@@ -1,30 +1,33 @@
+
 import type { User } from "@supabase/supabase-js";
 import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "../../supabase-client"; // Import the configured Supabase client
+import { supabase } from "../../supabase-client";
 import { useQuery } from "@tanstack/react-query";
 import { cartStore } from "../store/cartStore";
 
-// Defines the shape of the authentication context, nothing else is allowed in or out
 interface AuthContextType {
-  user: User | null; // Who is signed in or null
-  role?: "NO_ACCESS" | "USER" | "ADMIN"; // What role they have
-  roleLoading: boolean; // Whether the role is currently loading
-  roleError: boolean; // Whether there was an error fetching the role
-  signUpWithEmail: (params: { 
-    email: string, 
-    password: string, 
-    options: { data: {first_name: string, last_name: string } }
-  }) => Promise<{ data: any; error: any }>; // How to sign up
-  signInWithEmail: (email: string, password: string) => void; // How to sign in
-  signOut: () => void; // How to sign out
+  user: User | null;
+  role?: "NO_ACCESS" | "USER" | "ADMIN";
+  roleLoading: boolean;
+  roleError: boolean;
+  signUpWithEmail: (params: {
+    email: string;
+    password: string;
+    options: {
+      data: {
+        first_name: string;
+        last_name: string;
+      };
+    };
+  }) => Promise<{ data: any; error: any }>;
+  signInWithEmail: (email: string, password: string) => Promise<void>;
+  signOut: () => void;
 }
 
-// Global authentication context to manage user state
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// The AuthProvider component that wraps the app
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null); // State to hold the current use
+  const [user, setUser] = useState<User | null>(null);
 
   const fetchUserProfile = async (userId: string) => {
     const { data, error } = await supabase
@@ -32,42 +35,41 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       .select("role, is_banned")
       .eq("id", userId)
       .single();
-      
-      if (error) {
-        throw error;
-      }
-      
-      return data as {
-        role: "NO_ACCESS" | "USER" | "ADMIN";
-        is_banned: boolean;
-      };
+
+    if (error) {
+      throw error;
+    }
+
+    return data as {
+      role: "NO_ACCESS" | "USER" | "ADMIN";
+      is_banned: boolean;
+    };
   };
-  
+
   const { data: profile, isLoading, isError } = useQuery({
     queryKey: ["userProfile", user?.id],
-    queryFn: () => fetchUserProfile(user!.id), // Calls this function 
-    enabled: !!user?.id, // Once user.id is available
+    queryFn: () => fetchUserProfile(user!.id),
+    enabled: !!user?.id,
   });
 
   useEffect(() => {
     if (!profile) return;
-    
+
     if (profile.is_banned || profile.role === "NO_ACCESS") {
       console.warn("Banned/no access user detected. Signing out.");
       signOut();
     }
   }, [profile]);
 
-
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
     });
-    
+
     const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
       setUser(session?.user ?? null);
     });
-    
+
     return () => {
       listener.subscription.unsubscribe();
     };
@@ -76,8 +78,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   async function signUpWithEmail({
     email,
     password,
-    options
-  } : {
+    options,
+  }: {
     email: string;
     password: string;
     options: {
@@ -87,12 +89,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       };
     };
   }) {
-    const { first_name, last_name } = options.data; 
+    const { first_name, last_name } = options.data;
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        emailRedirectTo: 'https://gourmet2go.vercel.app/',
+        emailRedirectTo: "https://gourmet2go.vercel.app/",
         data: {
           first_name,
           last_name,
@@ -101,49 +104,52 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     });
 
     return { data, error };
-
   }
 
-  async function signInWithEmail(email: string, password: string) {
+  async function signInWithEmail(
+    email: string,
+    password: string
+  ): Promise<void> {
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
-    })
+    });
 
     if (error) {
-      console.error('Error signing in:', error.message);
-      return;
+      throw new Error(error.message);
     }
   }
 
   const signOut = async () => {
-    await supabase.auth.refreshSession()
-    await supabase.auth.signOut() // Supabase sign out
-    setUser(null); // Clear user state
-    cartStore.getState().clearCart(); // Clear cart on sign out
+    await supabase.auth.refreshSession();
+    await supabase.auth.signOut();
+    setUser(null);
+    cartStore.getState().clearCart();
   };
 
-
-  // Provides these values to the child components 
   return (
-    <AuthContext.Provider value={{ 
-      user, 
-      signUpWithEmail, 
-      signInWithEmail, 
-      signOut, 
-      roleLoading: isLoading,
-      roleError: isError,
-      role: profile?.role
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        signUpWithEmail,
+        signInWithEmail,
+        signOut,
+        roleLoading: isLoading,
+        roleError: isError,
+        role: profile?.role,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
 
 export const useAuth = (): AuthContextType => {
-  const context = useContext(AuthContext); 
+  const context = useContext(AuthContext);
+
   if (context === undefined) {
-    throw new Error("useAuth must be used within the AuthProvider"); // Error if used outside AuthProvider
+    throw new Error("useAuth must be used within the AuthProvider");
   }
-  return context; // Returns the auth context values
+
+  return context;
 };
