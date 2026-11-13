@@ -22,6 +22,10 @@ interface AuthContextType {
 }
 export declare const AuthProvider: ({ children }: {
     children: React.ReactNode;
+<<<<<<< HEAD
+}) => import("react").JSX.Element;
+=======
 }) => import("react/jsx-runtime").JSX.Element;
+>>>>>>> origin/main
 export declare const useAuth: () => AuthContextType;
 export {};
