@@ -4,6 +4,8 @@ import os
 from dotenv import load_dotenv
 import logging
 import requests
+import stripe
+import os
 
 load_dotenv()
 
@@ -15,6 +17,7 @@ app = Flask(__name__)
 
 url: str = f"https://vnnlrooakzcseeiqskxw.supabase.co"
 key: str = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
 logging.info("Checking required environment variables...")
 
@@ -36,6 +39,49 @@ if not url or not key:
     )
 
 supabase: Client = create_client(url, key)
+
+
+# Stripe testing
+@app.route("/api/test_stripe", methods=['GET'])
+def test_stripe(): #changed to be testing stripe to flask connection
+    try:
+        account = stripe.Account.retrieve()
+        return {
+            "success": True,
+            "account_id": account.id
+        }
+    except Exception as e:
+        return {
+            "success": False,
+            "error": str(e)
+        }, 500
+
+#CREATE CHECKOUT SESSION HERE
+@app.route("/api/create-checkout-session", methods=["POST"])
+def create_checkout_session():
+
+    session = stripe.checkout.Session.create(
+        mode="payment",
+        line_items=[
+            {
+                "price_data": {
+                    "currency": "cad",
+                    "product_data": {
+                        "name": "Test Item"
+                    },
+                    "unit_amount": 1000
+                },
+                "quantity": 1
+            }
+        ],
+        success_url="http://localhost:5173/success",
+        cancel_url="http://localhost:5173/checkout"
+    )
+
+    return jsonify({
+        "url": session.url
+    })
+
 
 @app.route('/api/hello', methods=['GET'])
 def hello_world():
@@ -300,4 +346,6 @@ def delete_self():
 if __name__ == '__main__':
     # Debug mode is set to false for production safety
     # Locally you can set it to true to get detailed error messages in the console
-    app.run(port=5000, debug=False)
+    app.run(port=5000, debug=True)
+
+

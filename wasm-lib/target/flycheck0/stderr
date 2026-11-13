@@ -1,0 +1,730 @@
+   0.083386500s  INFO prepare_target{force=false package_id=wasm-lib v0.1.0 (C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib) target="wasm_lib"}: cargo::core::compiler::fingerprint: fingerprint error for wasm-lib v0.1.0 (C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("wasm_lib", ["cdylib"], "C:\\Users\\sunny\\Documents\\Cal_school\\26F-S4\\Capstone\\G2G-Program\\gourmet2go-26f\\wasm-lib\\src\\lib.rs", Edition2021) }
+   0.083493800s  INFO prepare_target{force=false package_id=wasm-lib v0.1.0 (C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib) target="wasm_lib"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\wasm-lib-d66525e5ca25cb5e\lib-wasm_lib`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_libgit2_prerelease
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: git_midx_writer_dump
+  16: git_filter_source_repo
+  17: git_midx_writer_dump
+  18: BaseThreadInitThunk
+  19: RtlUserThreadStart
+   0.102776000s  INFO prepare_target{force=false package_id=console_error_panic_hook v0.1.7 target="console_error_panic_hook"}: cargo::core::compiler::fingerprint: fingerprint error for console_error_panic_hook v0.1.7/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("console_error_panic_hook", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\console_error_panic_hook-0.1.7\\src\\lib.rs", Edition2015) }
+   0.102808600s  INFO prepare_target{force=false package_id=console_error_panic_hook v0.1.7 target="console_error_panic_hook"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\console_error_panic_hook-87d9edf916ddca09\lib-console_error_panic_hook`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+   0.103650600s  INFO prepare_target{force=false package_id=cfg-if v1.0.4 target="cfg_if"}: cargo::core::compiler::fingerprint: fingerprint error for cfg-if v1.0.4/Check { test: false }/TargetInner { ..: lib_target("cfg_if", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\cfg-if-1.0.4\\src\\lib.rs", Edition2018) }
+   0.103675200s  INFO prepare_target{force=false package_id=cfg-if v1.0.4 target="cfg_if"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\cfg-if-dc8a210419e311e1\lib-cfg_if`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.104305700s  INFO prepare_target{force=false package_id=wasm-bindgen v0.2.113 target="wasm_bindgen"}: cargo::core::compiler::fingerprint: fingerprint error for wasm-bindgen v0.2.113/Check { test: false }/TargetInner { tested: false, ..: lib_target("wasm_bindgen", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\wasm-bindgen-0.2.113\\src\\lib.rs", Edition2021) }
+   0.104331500s  INFO prepare_target{force=false package_id=wasm-bindgen v0.2.113 target="wasm_bindgen"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\wasm-bindgen-1b91e6e6997fde62\lib-wasm_bindgen`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.105533200s  INFO prepare_target{force=false package_id=once_cell v1.21.3 target="once_cell"}: cargo::core::compiler::fingerprint: fingerprint error for once_cell v1.21.3/Check { test: false }/TargetInner { ..: lib_target("once_cell", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\once_cell-1.21.3\\src\\lib.rs", Edition2021) }
+   0.105574700s  INFO prepare_target{force=false package_id=once_cell v1.21.3 target="once_cell"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\once_cell-3d8b560d37233640\lib-once_cell`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.118422800s  INFO prepare_target{force=false package_id=wasm-bindgen-shared v0.2.113 target="wasm_bindgen_shared"}: cargo::core::compiler::fingerprint: fingerprint error for wasm-bindgen-shared v0.2.113/Check { test: false }/TargetInner { ..: lib_target("wasm_bindgen_shared", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\wasm-bindgen-shared-0.2.113\\src\\lib.rs", Edition2021) }
+   0.118464500s  INFO prepare_target{force=false package_id=wasm-bindgen-shared v0.2.113 target="wasm_bindgen_shared"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\wasm-bindgen-shared-3a6851228e4bdc5c\lib-wasm_bindgen_shared`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.119613300s  INFO prepare_target{force=false package_id=unicode-ident v1.0.24 target="unicode_ident"}: cargo::core::compiler::fingerprint: fingerprint error for unicode-ident v1.0.24/Check { test: false }/TargetInner { ..: lib_target("unicode_ident", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\unicode-ident-1.0.24\\src\\lib.rs", Edition2021) }
+   0.119645600s  INFO prepare_target{force=false package_id=unicode-ident v1.0.24 target="unicode_ident"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\unicode-ident-fb1ecc341332bde6\lib-unicode_ident`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.120493900s  INFO prepare_target{force=false package_id=image v0.24.9 target="image"}: cargo::core::compiler::fingerprint: fingerprint error for image v0.24.9/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("image", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\image-0.24.9\\src\\lib.rs", Edition2021) }
+   0.120520900s  INFO prepare_target{force=false package_id=image v0.24.9 target="image"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\image-1c5334298453786c\lib-image`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+   0.121560700s  INFO prepare_target{force=false package_id=bytemuck v1.25.0 target="bytemuck"}: cargo::core::compiler::fingerprint: fingerprint error for bytemuck v1.25.0/Check { test: false }/TargetInner { ..: lib_target("bytemuck", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\bytemuck-1.25.0\\src\\lib.rs", Edition2018) }
+   0.121586300s  INFO prepare_target{force=false package_id=bytemuck v1.25.0 target="bytemuck"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\bytemuck-601a07cd075f5a55\lib-bytemuck`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.122192500s  INFO prepare_target{force=false package_id=byteorder v1.5.0 target="byteorder"}: cargo::core::compiler::fingerprint: fingerprint error for byteorder v1.5.0/Check { test: false }/TargetInner { benched: false, ..: lib_target("byteorder", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\byteorder-1.5.0\\src\\lib.rs", Edition2021) }
+   0.122215500s  INFO prepare_target{force=false package_id=byteorder v1.5.0 target="byteorder"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\byteorder-c6d6abeff13f21f1\lib-byteorder`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.122812200s  INFO prepare_target{force=false package_id=color_quant v1.1.0 target="color_quant"}: cargo::core::compiler::fingerprint: fingerprint error for color_quant v1.1.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("color_quant", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\color_quant-1.1.0\\src\\lib.rs", Edition2015) }
+   0.122836200s  INFO prepare_target{force=false package_id=color_quant v1.1.0 target="color_quant"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\color_quant-fb568d42bd4afb5a\lib-color_quant`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.123730300s  INFO prepare_target{force=false package_id=gif v0.13.3 target="gif"}: cargo::core::compiler::fingerprint: fingerprint error for gif v0.13.3/Check { test: false }/TargetInner { benched: false, ..: lib_target("gif", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\gif-0.13.3\\src\\lib.rs", Edition2021) }
+   0.123761800s  INFO prepare_target{force=false package_id=gif v0.13.3 target="gif"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\gif-e9641d06b9422cb7\lib-gif`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.124771200s  INFO prepare_target{force=false package_id=weezl v0.1.12 target="weezl"}: cargo::core::compiler::fingerprint: fingerprint error for weezl v0.1.12/Check { test: false }/TargetInner { benched: false, ..: lib_target("weezl", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\weezl-0.1.12\\src\\lib.rs", Edition2018) }
+   0.124836500s  INFO prepare_target{force=false package_id=weezl v0.1.12 target="weezl"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\weezl-25463a1225840ba3\lib-weezl`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.126021100s  INFO prepare_target{force=false package_id=jpeg-decoder v0.3.2 target="jpeg_decoder"}: cargo::core::compiler::fingerprint: fingerprint error for jpeg-decoder v0.3.2/Check { test: false }/TargetInner { ..: lib_target("jpeg_decoder", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\jpeg-decoder-0.3.2\\src\\lib.rs", Edition2021) }
+   0.126063900s  INFO prepare_target{force=false package_id=jpeg-decoder v0.3.2 target="jpeg_decoder"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\jpeg-decoder-ee1da1c5b1312141\lib-jpeg_decoder`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.127356000s  INFO prepare_target{force=false package_id=num-traits v0.2.19 target="num_traits"}: cargo::core::compiler::fingerprint: fingerprint error for num-traits v0.2.19/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("num_traits", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\num-traits-0.2.19\\src\\lib.rs", Edition2021) }
+   0.127390900s  INFO prepare_target{force=false package_id=num-traits v0.2.19 target="num_traits"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\num-traits-e5cda2bd567d126c\lib-num_traits`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.130131200s  INFO prepare_target{force=false package_id=png v0.17.16 target="png"}: cargo::core::compiler::fingerprint: fingerprint error for png v0.17.16/Check { test: false }/TargetInner { ..: lib_target("png", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\png-0.17.16\\src\\lib.rs", Edition2018) }
+   0.130172600s  INFO prepare_target{force=false package_id=png v0.17.16 target="png"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\png-aa8f95e31c4bf730\lib-png`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.131313700s  INFO prepare_target{force=false package_id=bitflags v1.3.2 target="bitflags"}: cargo::core::compiler::fingerprint: fingerprint error for bitflags v1.3.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("bitflags", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\bitflags-1.3.2\\src\\lib.rs", Edition2018) }
+   0.131343600s  INFO prepare_target{force=false package_id=bitflags v1.3.2 target="bitflags"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\bitflags-c519c0a9d5580e88\lib-bitflags`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.132280900s  INFO prepare_target{force=false package_id=crc32fast v1.5.0 target="crc32fast"}: cargo::core::compiler::fingerprint: fingerprint error for crc32fast v1.5.0/Check { test: false }/TargetInner { ..: lib_target("crc32fast", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\crc32fast-1.5.0\\src\\lib.rs", Edition2021) }
+   0.132322000s  INFO prepare_target{force=false package_id=crc32fast v1.5.0 target="crc32fast"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\crc32fast-509eb63333a36aee\lib-crc32fast`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.134036100s  INFO prepare_target{force=false package_id=fdeflate v0.3.7 target="fdeflate"}: cargo::core::compiler::fingerprint: fingerprint error for fdeflate v0.3.7/Check { test: false }/TargetInner { ..: lib_target("fdeflate", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\fdeflate-0.3.7\\src\\lib.rs", Edition2021) }
+   0.134061100s  INFO prepare_target{force=false package_id=fdeflate v0.3.7 target="fdeflate"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\fdeflate-160322186dd64fda\lib-fdeflate`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.134801900s  INFO prepare_target{force=false package_id=simd-adler32 v0.3.8 target="simd_adler32"}: cargo::core::compiler::fingerprint: fingerprint error for simd-adler32 v0.3.8/Check { test: false }/TargetInner { ..: lib_target("simd_adler32", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\simd-adler32-0.3.8\\src\\lib.rs", Edition2018) }
+   0.134826600s  INFO prepare_target{force=false package_id=simd-adler32 v0.3.8 target="simd_adler32"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\simd-adler32-b7c68e215074a975\lib-simd_adler32`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.135366000s  INFO prepare_target{force=false package_id=flate2 v1.1.9 target="flate2"}: cargo::core::compiler::fingerprint: fingerprint error for flate2 v1.1.9/Check { test: false }/TargetInner { ..: lib_target("flate2", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\flate2-1.1.9\\src\\lib.rs", Edition2018) }
+   0.135386700s  INFO prepare_target{force=false package_id=flate2 v1.1.9 target="flate2"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\flate2-1dbfbad582b6ee98\lib-flate2`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.136048500s  INFO prepare_target{force=false package_id=miniz_oxide v0.8.9 target="miniz_oxide"}: cargo::core::compiler::fingerprint: fingerprint error for miniz_oxide v0.8.9/Check { test: false }/TargetInner { ..: lib_target("miniz_oxide", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\miniz_oxide-0.8.9\\src\\lib.rs", Edition2021) }
+   0.136069600s  INFO prepare_target{force=false package_id=miniz_oxide v0.8.9 target="miniz_oxide"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\miniz_oxide-e9d485d83603f1a6\lib-miniz_oxide`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.136788400s  INFO prepare_target{force=false package_id=adler2 v2.0.1 target="adler2"}: cargo::core::compiler::fingerprint: fingerprint error for adler2 v2.0.1/Check { test: false }/TargetInner { ..: lib_target("adler2", ["lib"], "C:\\Users\\sunny\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\adler2-2.0.1\\src\\lib.rs", Edition2021) }
+   0.136810200s  INFO prepare_target{force=false package_id=adler2 v2.0.1 target="adler2"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\adler2-1ebe86a54695fc73\lib-adler2`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.137678500s  INFO prepare_target{force=false package_id=wasm-lib v0.1.0 (C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib) target="wasm_lib"}: cargo::core::compiler::fingerprint: fingerprint error for wasm-lib v0.1.0 (C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("wasm_lib", ["cdylib"], "C:\\Users\\sunny\\Documents\\Cal_school\\26F-S4\\Capstone\\G2G-Program\\gourmet2go-26f\\wasm-lib\\src\\lib.rs", Edition2021) }
+   0.137704400s  INFO prepare_target{force=false package_id=wasm-lib v0.1.0 (C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib) target="wasm_lib"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib\target\debug\.fingerprint\wasm-lib-611ec5b8899bc3ae\test-lib-wasm_lib`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_libgit2_prerelease
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: git_midx_writer_dump
+  16: git_filter_source_repo
+  17: git_midx_writer_dump
+  18: BaseThreadInitThunk
+  19: RtlUserThreadStart
+    Checking cfg-if v1.0.4
+    Checking simd-adler32 v0.3.8
+    Checking adler2 v2.0.1
+    Checking unicode-ident v1.0.24
+    Checking bitflags v1.3.2
+    Checking once_cell v1.21.3
+    Checking weezl v0.1.12
+    Checking color_quant v1.1.0
+    Checking crc32fast v1.5.0
+    Checking num-traits v0.2.19
+    Checking wasm-bindgen-shared v0.2.113
+    Checking jpeg-decoder v0.3.2
+    Checking bytemuck v1.25.0
+    Checking miniz_oxide v0.8.9
+    Checking fdeflate v0.3.7
+    Checking byteorder v1.5.0
+    Checking wasm-bindgen v0.2.113
+    Checking gif v0.13.3
+    Checking flate2 v1.1.9
+    Checking png v0.17.16
+    Checking console_error_panic_hook v0.1.7
+    Checking image v0.24.9
+    Checking wasm-lib v0.1.0 (C:\Users\sunny\Documents\Cal_school\26F-S4\Capstone\G2G-Program\gourmet2go-26f\wasm-lib)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.90s
