@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "composite": true,
@@ -16,12 +17,14 @@
     "moduleDetection": "force",
     "emitDeclarationOnly": true,
     "jsx": "react-jsx",
+    "allowJs": true,
+    "checkJs": false,
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },

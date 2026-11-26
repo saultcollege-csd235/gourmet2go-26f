@@ -1,0 +1,956 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap");
+
+html:has(.odenos-site) {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #4c00b0 #111;
+}
+
+html:has(.odenos-site)::-webkit-scrollbar {
+  width: 10px;
+}
+
+html:has(.odenos-site)::-webkit-scrollbar-track {
+  background: #111;
+}
+
+html:has(.odenos-site)::-webkit-scrollbar-thumb {
+  background: #4c00b0;
+  border-radius: 20px;
+  border: 2px solid #111;
+}
+
+html:has(.odenos-site)::-webkit-scrollbar-thumb:hover {
+  background: #7b2fe8;
+}
+
+.odenos-site {
+  --odenos-accent: #4c00b0;
+  --odenos-heading-font: "Cormorant Garamond", Georgia, serif;
+  --odenos-body-font: "Libre Baskerville", Georgia, serif;
+
+  background: #000;
+  color: #fff;
+  font-family: var(--odenos-body-font);
+  min-height: 100vh;
+  overflow-x: clip;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  section {
+    scroll-margin-top: 70px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: var(--odenos-body-font);
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid #a77af2;
+    outline-offset: 4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--odenos-heading-font);
+  }
+
+  .odenos-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+
+    &.odenos-navbar-scrolled {
+      height: 70px;
+      background: rgba(5, 5, 5, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .odenos-brand img {
+      width: auto;
+      height: 58px;
+      object-fit: contain;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .odenos-navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .odenos-nav-order {
+      color: white;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 13px 22px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+
+      &:hover {
+        background: var(--odenos-accent);
+        border-color: var(--odenos-accent);
+      }
+    }
+
+    .odenos-menu-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      color: white;
+      font-size: 32px;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: rotate(90deg);
+        color: #b68af2;
+      }
+    }
+  }
+
+  .odenos-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+  }
+
+  .odenos-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 120;
+    height: 100dvh;
+    width: min(440px, 100%);
+    background: #faf8f3;
+    color: #171717;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 23px;
+    padding: 65px 12%;
+    box-shadow: -15px 0 60px rgba(0, 0, 0, 0.35);
+
+    .odenos-close {
+      position: absolute;
+      top: 27px;
+      right: 30px;
+      background: transparent;
+      border: 0;
+      color: #222;
+      font-size: 25px;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+
+    .odenos-drawer-eyebrow {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #7250a2;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #222;
+      font-family: var(--odenos-heading-font);
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1;
+      transition: all 0.3s;
+
+      &:hover {
+        color: var(--odenos-accent);
+        transform: translateX(8px);
+      }
+    }
+
+    .odenos-drawer-order {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+      background: var(--odenos-accent);
+      color: white;
+      padding: 15px 22px;
+      border: 0;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #6c24cc;
+      }
+    }
+
+    .odenos-drawer-bottom {
+      position: absolute;
+      bottom: 35px;
+      color: #888;
+      font-family: var(--odenos-heading-font);
+      font-style: italic;
+      font-size: 20px;
+    }
+  }
+
+  .odenos-hero {
+    position: relative;
+    min-height: 650px;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #030303;
+    overflow: hidden;
+    isolation: isolate;
+
+    .odenos-hero-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          ellipse at 50% 70%,
+          rgba(76, 0, 176, 0.18),
+          transparent 55%
+        );
+      z-index: 0;
+    }
+
+    .odenos-hero-pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.25;
+      background-image:
+        radial-gradient(#8c63c0 0.7px, transparent 0.7px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 45%,
+        transparent
+      );
+    }
+
+    .odenos-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1250px;
+      padding: 100px 25px 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .odenos-small-heading {
+      font-size: 11px;
+      color: #c5b4d6;
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: var(--odenos-heading-font);
+      font-size: clamp(65px, 8vw, 125px);
+      font-weight: 600;
+      letter-spacing: -2px;
+      line-height: 0.98;
+      margin: 0;
+      max-width: 100%;
+    }
+
+    .odenos-hero-prefix {
+      display: block;
+    }
+
+    .odenos-changing-word {
+      display: block;
+      color: #fff;
+      min-height: 1.12em;
+
+      > span {
+        display: inline-block;
+      }
+    }
+
+    .odenos-animated-line {
+      width: min(350px, 70%);
+      height: 3px;
+      background: var(--odenos-accent);
+      transform-origin: center;
+      margin: 28px 0;
+      box-shadow: 0 0 25px rgba(105, 34, 213, 0.5);
+    }
+
+    .odenos-hero-description {
+      max-width: 550px;
+      color: #bcb6c3;
+      font-size: 13px;
+      line-height: 2.1;
+      margin: 0 0 30px;
+    }
+
+    .odenos-scroll-indicator {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 3;
+      color: #aaa;
+      font-size: 9px;
+      letter-spacing: 2px;
+
+      .odenos-scroll-line {
+        display: block;
+        height: 38px;
+        width: 1px;
+        background: var(--odenos-accent);
+        animation: odenos-scroll-pulse 2s infinite;
+      }
+    }
+  }
+
+  @keyframes odenos-scroll-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scaleY(0.6);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  .odenos-primary-button,
+  .odenos-dark-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    border: 1px solid transparent;
+    padding: 17px 30px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .odenos-primary-button {
+    color: white;
+    background: var(--odenos-accent);
+
+    &:hover {
+      background: #6f24d1;
+      box-shadow: 0 10px 35px rgba(76, 0, 176, 0.35);
+    }
+  }
+
+  .odenos-dark-button {
+    color: white;
+    background: #151515;
+
+    &:hover {
+      background: var(--odenos-accent);
+      transform: translateY(-3px);
+    }
+  }
+
+  .odenos-section-title {
+    text-align: center;
+    padding: 100px 20px 65px;
+
+    h2 {
+      font-size: clamp(48px, 5.5vw, 76px);
+      font-weight: 600;
+      line-height: 1.05;
+      margin: 15px 0 0;
+    }
+
+    .odenos-title-line {
+      width: 80px;
+      height: 3px;
+      background: var(--odenos-accent);
+      margin: 25px auto 0;
+    }
+  }
+
+  .odenos-eyebrow {
+    color: #a679e8;
+    font-family: var(--odenos-body-font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .odenos-short-line {
+    width: 65px;
+    height: 3px;
+    background: var(--odenos-accent);
+    margin: 18px 0 28px;
+  }
+
+  .odenos-features {
+    padding-bottom: 110px;
+    background: #080808;
+
+    .odenos-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 30px;
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 0 35px;
+    }
+
+    .odenos-feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 35px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.015);
+      transition: border-color 0.3s, background 0.3s;
+
+      &:hover {
+        border-color: rgba(130, 71, 220, 0.4);
+        background: rgba(76, 0, 176, 0.06);
+
+        .odenos-feature-icon {
+          color: white;
+          border-color: var(--odenos-accent);
+          background: var(--odenos-accent);
+          transform: translateY(-8px);
+        }
+      }
+
+      .odenos-feature-icon {
+        width: 145px;
+        height: 145px;
+        border-radius: 50%;
+        border: 1px solid #444;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 55px;
+        transition: all 0.4s;
+      }
+
+      h3 {
+        font-size: 38px;
+        font-weight: 600;
+        margin: 25px 0 15px;
+      }
+
+      .odenos-feature-line {
+        width: 55px;
+        height: 1px;
+        background: #777;
+      }
+
+      p {
+        max-width: 300px;
+        color: #aaa;
+        font-size: 12px;
+        line-height: 2.1;
+        margin: 20px 0 0;
+      }
+    }
+  }
+
+  .odenos-about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #faf8f3;
+    color: #1d1d1d;
+    min-height: 560px;
+
+    .odenos-about-image {
+      overflow: hidden;
+      min-height: 560px;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 560px;
+        object-fit: cover;
+        transition: transform 0.8s;
+
+        &:hover {
+          transform: scale(1.04);
+        }
+      }
+    }
+
+    .odenos-about-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 70px 10%;
+
+      h2 {
+        font-size: clamp(45px, 5vw, 70px);
+        font-weight: 600;
+        line-height: 1.02;
+        margin: 15px 0;
+      }
+
+      p:not(.odenos-eyebrow) {
+        color: #666;
+        font-size: 12px;
+        line-height: 2.2;
+        margin-bottom: 18px;
+      }
+
+      .odenos-dark-button {
+        margin-top: 15px;
+      }
+    }
+  }
+
+  .odenos-events {
+    padding-bottom: 110px;
+    background: #080808;
+
+    .odenos-event-content {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .odenos-event-image {
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+        transition: transform 0.5s;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+
+    .odenos-event-text {
+      h3 {
+        font-size: clamp(45px, 5vw, 70px);
+        font-weight: 600;
+        line-height: 1.05;
+        margin: 15px 0;
+      }
+
+      p:not(.odenos-eyebrow) {
+        color: #b5b5b5;
+        font-size: 12px;
+        line-height: 2.2;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .odenos-contact {
+    background: #faf8f3;
+    color: #222;
+    padding: 120px 25px;
+    text-align: center;
+
+    h2 {
+      font-size: clamp(50px, 6vw, 85px);
+      font-weight: 600;
+      line-height: 1.05;
+      margin: 15px 0;
+    }
+
+    .odenos-short-line {
+      margin: 25px auto;
+    }
+
+    p:not(.odenos-eyebrow) {
+      color: #666;
+      font-size: 12px;
+      line-height: 2;
+      margin-bottom: 30px;
+    }
+  }
+
+  .odenos-footer {
+    padding: 65px 20px 30px;
+    background: #050505;
+    text-align: center;
+    color: #999;
+
+    img {
+      width: auto;
+      height: 80px;
+      max-width: 190px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .odenos-footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin: 30px 0;
+
+      a {
+        color: #ccc;
+        font-size: 11px;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #a679e8;
+        }
+      }
+    }
+
+    .odenos-copyright {
+      padding-top: 25px;
+      border-top: 1px solid #222;
+      font-size: 10px;
+      color: #777;
+    }
+  }
+
+  .odenos-order-popup {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    width: min(390px, calc(100vw - 30px));
+    background: #faf8f3;
+    color: #222;
+    padding: 25px;
+    border: 1px solid #e4d9ed;
+    border-left: 4px solid var(--odenos-accent);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+    border-radius: 12px;
+    outline: none;
+
+    .odenos-popup-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: transparent;
+      color: #666;
+      border: 0;
+      font-size: 15px;
+      padding: 5px;
+    }
+
+    .odenos-popup-top {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-right: 20px;
+    }
+
+    .odenos-popup-icon {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #eee3fa;
+      color: var(--odenos-accent);
+      font-size: 22px;
+    }
+
+    .odenos-popup-label {
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: #79549c;
+      margin: 0 0 4px;
+    }
+
+    h3 {
+      font-family: var(--odenos-heading-font);
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .odenos-popup-description {
+      color: #666;
+      font-size: 11px;
+      line-height: 2;
+      margin: 20px 0;
+    }
+
+    .odenos-popup-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .odenos-popup-cancel,
+    .odenos-popup-confirm {
+      flex: 1;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 10px;
+      border-radius: 5px;
+      font-family: var(--odenos-body-font);
+      font-size: 10px;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .odenos-popup-cancel {
+      background: transparent;
+      border: 1px solid #ccc;
+      color: #444;
+
+      &:hover {
+        background: #eee;
+      }
+    }
+
+    .odenos-popup-confirm {
+      background: var(--odenos-accent);
+      border: 1px solid var(--odenos-accent);
+      color: white;
+
+      &:hover {
+        background: #6c22cb;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .odenos-features .odenos-feature-grid {
+      gap: 15px;
+      padding: 0 20px;
+    }
+
+    .odenos-about,
+    .odenos-events .odenos-event-content {
+      grid-template-columns: 1fr;
+    }
+
+    .odenos-about .odenos-about-image,
+    .odenos-about .odenos-about-image img {
+      min-height: 350px;
+      max-height: 450px;
+    }
+
+    .odenos-about .odenos-about-content {
+      padding: 65px 8%;
+    }
+
+    .odenos-events .odenos-event-content {
+      gap: 45px;
+      max-width: 700px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .odenos-navbar {
+      height: 70px;
+      padding: 0 18px;
+
+      .odenos-brand img {
+        height: 48px;
+      }
+
+      .odenos-navbar-right {
+        gap: 15px;
+      }
+
+      .odenos-nav-order {
+        padding: 10px 12px;
+        font-size: 9px;
+      }
+
+      .odenos-menu-button {
+        font-size: 29px;
+      }
+    }
+
+    .odenos-drawer {
+      padding: 65px 10%;
+      gap: 22px;
+
+      a {
+        font-size: 33px;
+      }
+    }
+
+    .odenos-hero {
+      min-height: 600px;
+      height: 100svh;
+
+      h1 {
+        font-size: clamp(53px, 12vw, 75px);
+        letter-spacing: -1px;
+      }
+
+      .odenos-small-heading {
+        font-size: 9px;
+        letter-spacing: 3px;
+      }
+
+      .odenos-hero-description {
+        font-size: 11px;
+        max-width: 320px;
+      }
+
+      .odenos-scroll-indicator {
+        bottom: 15px;
+      }
+    }
+
+    .odenos-section-title {
+      padding: 75px 18px 45px;
+
+      h2 {
+        font-size: 48px;
+      }
+    }
+
+    .odenos-features {
+      padding-bottom: 70px;
+
+      .odenos-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 420px;
+      }
+
+      .odenos-feature {
+        padding: 30px 20px;
+
+        .odenos-feature-icon {
+          width: 125px;
+          height: 125px;
+          font-size: 45px;
+        }
+      }
+    }
+
+    .odenos-about .odenos-about-content {
+      padding: 55px 25px;
+
+      h2 {
+        font-size: 48px;
+      }
+    }
+
+    .odenos-events {
+      padding-bottom: 75px;
+
+      .odenos-event-content {
+        padding: 0 25px;
+        gap: 30px;
+      }
+
+      .odenos-event-text h3 {
+        font-size: 48px;
+      }
+    }
+
+    .odenos-contact {
+      padding: 80px 25px;
+
+      h2 {
+        font-size: 53px;
+      }
+    }
+
+    .odenos-order-popup {
+      bottom: 15px;
+      right: 15px;
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .odenos-hero h1 {
+      font-size: 48px;
+    }
+
+    .odenos-navbar .odenos-nav-order {
+      display: none;
+    }
+
+    .odenos-order-popup {
+      .odenos-popup-actions {
+        flex-direction: column;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

@@ -18,14 +18,17 @@ interface NavLinkType {
   roles?: Role[]; 
 }
 
+
 const getNavLinks = (t: (key: string) => string): NavLinkType[] => [
   { name: t("nav.admin"), path: "/admin", roles: ["ADMIN"] },
-  { name: t("nav.gallery"), path: "/gallery"},
+  { name: t("nav.gallery"), path: "/gallery" },
   { name: t("nav.menu"), path: "/" },
-  { name: t("nav.myOrders"), path: "/my-orders", roles: ["USER", "ADMIN"]},
-  { name: t("nav.review"), path: "/review", roles: ["USER", "ADMIN"]},
-  { name: t("nav.virtualTour"), path: "/virtualtour", roles: ["USER"]},
+  { name: "Odeno's", path: "/odenos" },
+  { name: t("nav.myOrders"), path: "/my-orders", roles: ["USER", "ADMIN"] },
+  { name: t("nav.review"), path: "/review", roles: ["USER", "ADMIN"] },
+  { name: t("nav.virtualTour"), path: "/virtualtour", roles: ["USER"] },
 ];
+
 
 export const Navbar = () => {
   const { t, i18n } = useTranslation();
