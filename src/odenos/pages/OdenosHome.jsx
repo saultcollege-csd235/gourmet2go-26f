@@ -1,9 +1,10 @@
-
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FaTimes,
+  FaMoon,
+  FaSun,
   FaUtensils,
   FaMusic,
   FaHeart,
@@ -86,6 +87,22 @@ function SectionHeading({ eyebrow, title }) {
 }
 
 export default function OdenosHome() {
+  const [darkMode, setDarkMode] = useState(() => {
+    try {
+      return localStorage.getItem("odenos-theme") === "dark";
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("odenos-theme", darkMode ? "dark" : "light");
+    } catch {
+      // Theme still works when storage is unavailable.
+    }
+  }, [darkMode]);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   const [orderPopup, setOrderPopup] = useState(false);
@@ -168,7 +185,7 @@ export default function OdenosHome() {
   };
 
   return (
-    <div className="odenos-site">
+    <div className={`odenos-site${darkMode ? " odenos-dark-mode" : ""}`}>
       <header
         className={`odenos-navbar ${
           scrolled ? "odenos-navbar-scrolled" : ""
@@ -184,12 +201,26 @@ export default function OdenosHome() {
         </a>
 
         <div className="odenos-navbar-right">
+          <Link to="/" className="odenos-nav-return" aria-label="Back to Gourmet2Go">
+            <span aria-hidden="true">←</span> Gourmet2Go
+          </Link>
+
           <button
             type="button"
             className="odenos-nav-order"
             onClick={showOrderPopup}
           >
             Order Online
+          </button>
+
+          <button
+            type="button"
+            className="odenos-theme-toggle"
+            aria-label="Dark mode"
+            aria-pressed={darkMode}
+            onClick={() => setDarkMode((current) => !current)}
+          >
+            {darkMode ? <FaSun aria-hidden="true" /> : <FaMoon aria-hidden="true" />}
           </button>
 
           <button
